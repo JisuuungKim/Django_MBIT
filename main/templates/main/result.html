@@ -1,0 +1,112 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
+{% endblock head %}
+{% block body %}
+    <section id="main_contents">
+        <div class="wrapper">
+            <div class="result">
+                <div class="titles">
+                    <h3>{{ developer.data.title }}</h3>
+                    <h1>{{ developer.name }}</h1>
+                </div>
+                <div class="result_img">
+                    <img src="{% static 'image/' %}{{ developer.pk }}.png" alt="frontend">
+                </div>
+            </div>
+            <div class="result_explains">
+                <div class="explain">
+                    <h3 class="title">나와 맞는 개발 유형은 {{ developer.name }}?!</h3>
+                    <ul>
+                        {% for featuer in developer.data.features %}
+                        <li>
+                            {{ feature }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="explain">
+                    <h3 class="title">{{ developer.name }}가 뭐지?</h3>
+                    <ul>
+                        {% for description in developer.data.descriptions %}
+                        <li>
+                            {{ description }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="explain">
+    <h3 class="title">그래서 어떤 언어부터 공부해야 할까?</h3>
+    <ul class="language_lists">
+        {% for language in developer.data.languages.list %}
+        <li>
+            <div class="img_wrap">
+                <img src="{% static '' %}{{ language.img }}" width="200px" alt="{{ language.name }}">
+            </div>
+            <h3>{{ language.name }}</h3>
+        </li>
+        {% endfor %}
+    </ul>
+    {% if data.languages.comments %}
+    <ul>
+    {% for comment in developer.data.languages.comments %}
+        <li>
+            {{ comment }}
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+            </div>
+            <div class="lectures">
+    <h3 class="title">강의 추천</h3>
+    <p>{{ developer.name }} 공부를 시작하기 좋은 강의를 추천해 드릴게요!</p>
+    <ul>
+        {% for lecture in data.lectures %}
+            <li>
+                <a href="{{ lecture.url }}" target="_blank">
+                    <img src="{% static '' %}{{ lecture.img }}" alt="{{ developer.lecture.name }}">
+                    <h3>{{ lecture.name }}</h3>
+                    <button type="button">강의 보러가기</button>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+            <div class="buttons">
+                <ul>
+                    <il>
+                        <h3>...이건 내가 아니야... 잘못된게 분명해!</h3>
+                        <a href="{% url 'main:index' %}">
+                            <button type="button">테스트 다시 하기</button>
+                        </a>
+                    </il>
+                    <il>
+                        <h3>다른 사람들은 어떤 유형일까?</h3>
+                        <a href="#">
+                            <button type="button">다른 결과 알아보기</button>
+                        </a>
+                    </il>
+                    <il>
+                        <h3>이런 테스트는 도대체 누가 만든거야? ^0^;;</h3>
+                        <a href="#">
+                            <button class="color" type="button">제주코딩베이스캠프</button>
+                        </a>
+                    </il>
+                </ul>
+            </div>
+            <div class="weniv">
+                <a href="http://www.paullab.co.kr">
+                    <img src="{% static 'image/weniv_logo_purple.png' %}" alt="weniv">
+                </a>
+                <p>
+                    ※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 위니브에 있습니다.<br>
+                    수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock body %}

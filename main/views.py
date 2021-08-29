@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Question, Developer, Choice
 
 def index(request):
@@ -9,7 +9,7 @@ def index(request):
         'developers' : developers,
     }
 
-    return render(request, 'index.html', context=context)
+    return render(request, 'main/index.html', context=context)
     #context와 합쳐서 index를 사용자에게 넘겨주겠다
 
 def form(request):
@@ -20,9 +20,9 @@ def form(request):
         'questions' : questions,
     }
 
-    return render(request, '../templates/form.html', context=context)
+    return render(request, 'main/form.html', context=context)
 
-def result(request):
+def submit(request):
     #문항 수
     N = Question.objects.count()
     #개발자 유형 수
@@ -44,4 +44,15 @@ def result(request):
         'developer' : best_developer,
         'counter' : counter
     }
-    return render(request, '../templates/result.html', context=context)
+    return redirect('main:result', developer_id = best_developer_id)
+
+
+def result(request, developer_id):
+    developer = Developer.objects.get(pk=developer_id)
+    context = {
+        'developer' : developer,
+    }
+    return render(request, 'main/result.html', context = context)
+
+def all_results(request):
+    return render(request, 'main/all_results.html')

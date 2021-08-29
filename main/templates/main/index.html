@@ -1,14 +1,12 @@
+{% extends 'main/base.html' %}
 {% load static %}
 
-<!--<!DOCTYPE html>-->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>나의 개발 유형 찾기</title>
+{% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% endblock head %}
+
+{% block body %}
 <section id="main_contents">
     <div class="wrapper">
         <div class="title">
@@ -28,7 +26,7 @@
             </div>
         </div>
         <div class="button">
-            <a href="/form">
+            <a href="{% url 'main:form' %}">
                 <button class="start" type="button">시작하기</button>
             </a>
         </div>
@@ -49,5 +47,4 @@
         </div>
     </div>
 </section>
-</body>
-</html>
+{% endblock body %}
