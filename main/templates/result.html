@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
+    <title>나의 개발 유형찾기</title>
+</head>
+<body>
+    <section id="main_contents">
+        <div class="wrapper">
+            <div class="result">
+                <div class="titles">
+                    <h3>예술적 감각이 뛰어난 당신은!</h3>
+                    <h1>{{ developer.name }}</h1>
+                </div>
+                <div class="result_img">
+                    <img src="{% static 'image/' %}{{ developer.pk }}.png" alt="frontend">
+                </div>
+            </div>
+            <div class="result_explains">
+                <div class="explain">
+                    <h3 class="title">나와 맞는 개발 유형은 {{ developer.name }}?!</h3>
+                    <ul>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                    </ul>
+                </div>
+                <div class="explain">
+                    <h3 class="title">Front-end 개발자가 뭐지?</h3>
+                    <ul>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                        <li>
+                            프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                        </li>
+                    </ul>
+                </div>
+                <div class="explain">
+                    <h3 class="title">그래서 어떤 언어부터 공부해야 할까?</h3>
+                    <ul class="language_lists">
+                        <li>
+                            <div class="img_wrap">
+                                <img src="{% static 'image/html.png' %}" alt="html">
+                            </div>
+                            <h3>HTML</h3>
+                        </li>
+                        <li>
+                            <div class="img_wrap">
+                                <img src="{% static 'image/css.png' %}" alt="css">
+                            </div>
+                            <h3>CSS</h3>
+                        </li>
+                        <li>
+                            <div class="img_wrap">
+                                <img src="{% static 'image/js.png' %}" alt="javascript">
+                            </div>
+                            <h3>JavaScript</h3>
+                        </li>
+                    </ul>
+                    <p>
+                        프론트엔드는 어쩌고 저쩌고 이기 때문에 기본적으로 무엇을 그렇기 때문에 HTML,CSS를 공부하고 JS를 어쩌고 하는 것이 좋아!
+                    </p>
+                </div>
+            </div>
+            <div class="lectures">
+                <h3 class="title">강의 추천</h3>
+                <p>Front-end 공부를 시작하기 좋은 강의를 추천해 드릴게요!</p>
+                <ul>
+                    <li>
+                        <img src="{% static 'image/lec_30minutes.png' %}" alt="30분 요약강좌">
+                        <h3>HTML, CSS, JS, Python 30분 요약강좌</h3>
+                        <a href="https://www.inflearn.com/course/제주코딩-웹개발-30분요약" target="_blank">
+                            <button type="button">강의 보러가기</button>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/lec_web_fullstack.png' %}" alt="코알못에서 웹서비스 런칭까지">
+                        <h3>코알못에서 웹서비스 런칭까지 : 제주 코딩 베이스캠프(Django)</h3>
+                        <a href="https://www.inflearn.com/course/web_fullstack" target="_blank">
+                            <button type="button">강의 보러가기</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <ul>
+                    <il>
+                        <h3>...이건 내가 아니야... 잘못된게 분명해!</h3>
+                        <a href="/">
+                            <button type="button">테스트 다시 하기</button>
+                        </a>
+                    </il>
+                    <il>
+                        <h3>다른 사람들은 어떤 유형일까?</h3>
+                        <a href="#">
+                            <button type="button">다른 결과 알아보기</button>
+                        </a>
+                    </il>
+                    <il>
+                        <h3>이런 테스트는 도대체 누가 만든거야? ^0^;;</h3>
+                        <a href="#">
+                            <button class="color" type="button">제주코딩베이스캠프</button>
+                        </a>
+                    </il>
+                </ul>
+            </div>
+            <div class="weniv">
+                <a href="http://www.paullab.co.kr">
+                    <img src="{% static 'image/weniv_logo_purple.png' %}" alt="weniv">
+                </a>
+                <p>
+                    ※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 위니브에 있습니다.<br>
+                    수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
